@@ -1,3 +1,7 @@
 from django.db import models
 
-# Create your models here.
+class User(models.Model):
+    """
+    name: 
+    """
+    name = models.CharField(max_length=50, unique=True, primary_key=True)
