@@ -87,7 +87,7 @@ venv/
 ENV/ 
 env.bak/ 
 venv.bak/
-migration/ 
+migrations/ 
 
 # mkdocs documentation 
 /site 
