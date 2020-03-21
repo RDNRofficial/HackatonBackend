@@ -25,7 +25,7 @@ SECRET_KEY = '+8b)b(t6a&1xcq7*k9uzs-_sk47es8v+wiiw(3x+jvy$p34qnp'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["bitschi.hopto.org"]
+ALLOWED_HOSTS = ["bitschi.hopto.org", "127.0.0.1"]
 
 
 # Application definition
