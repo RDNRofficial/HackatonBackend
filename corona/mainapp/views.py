@@ -16,3 +16,7 @@ class ListQuestion(ListCreateAPIView):
 class ListExplanations(ListCreateAPIView):
     serializer_class = ExplanationSerializer
     queryset = Explanation.object.get_queryset()
+    
+class ListUserscore(ListCreateAPIView):
+    serializer_class = UserscoreSerializer
+    queryset = Userscore.objects.get_queryset()
