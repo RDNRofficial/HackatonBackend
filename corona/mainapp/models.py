@@ -18,3 +18,12 @@ class Answer(models.Model):
 class Userscore(models.Model):
     score = models.IntegerField()
     username = models.CharField(max_length=30 ,unique=True)
+
+class DIYManual(models.Model):
+    title = models.CharField(max_length=100)
+    title_image = models.ImageField(upload_to='images/diy/titles')
+
+class Explanation(models.Model):
+    image = models.ImageField(upload_to='images/diy/')
+    text = models.CharField(max_length=200)
+    manual = models.ForeignKey(DIYManual, related_name='diy_manual', on_delete=models.CASCADE)

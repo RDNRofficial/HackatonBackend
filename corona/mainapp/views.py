@@ -12,3 +12,7 @@ class ListAnswer(ListCreateAPIView):
 class ListQuestion(ListCreateAPIView):
     serializer_class = QuestionSerializer
     queryset = Question.objects.get_queryset()
+
+class ListExplanations(ListCreateAPIView):
+    serializer_class = ExplanationSerializer
+    queryset = Explanation.object.get_queryset()

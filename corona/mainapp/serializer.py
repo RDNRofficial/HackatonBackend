@@ -18,3 +18,13 @@ class UserscoreSerializer(serializers.ModelSerializer):
     class Meta:
         model = Userscore
         fields = ("__all__")
+
+class ExplanationSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Explanation
+        fields = ("__all__")
+
+class DIYManualSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = DIYManual
+        fields = ("__all__")
