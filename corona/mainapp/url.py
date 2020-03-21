@@ -7,4 +7,5 @@ from .views import *
 urlpatterns = [
     url(r'answer/$', ListAnswer.as_view()),
     url(r'question/$', ListQuestion.as_view()),
+    url(r'userscore/$', ListUserscore.as_view()),
 ]
