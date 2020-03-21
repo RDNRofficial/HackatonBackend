@@ -35,13 +35,13 @@ class ModifyExplanation(RetrieveUpdateDestroyAPIView):
     queryset = Question.objects.get_queryset()
     lookup_field = 'pk'
 
-#Userscore
-class ListUserscore(ListCreateAPIView):
-    serializer_class = UserscoreSerializer
-    queryset = Userscore.objects.get_queryset()
+#Userlevel
+class ListUserlevel(ListCreateAPIView):
+    serializer_class = UserlevelSerializer
+    queryset = Userlevel.objects.get_queryset()
 
-class ModifyUserscore(RetrieveUpdateDestroyAPIView):
-    serializer_class = UserscoreSerializer
+class ModifyUserlevel(RetrieveUpdateDestroyAPIView):
+    serializer_class = UserlevelSerializer
     queryset = Question.objects.get_queryset()
     lookup_field = 'username'
 

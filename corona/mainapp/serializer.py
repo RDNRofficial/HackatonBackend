@@ -14,9 +14,9 @@ class QuestionSerializer(serializers.ModelSerializer):
         fields = ("__all__")
 
         
-class UserscoreSerializer(serializers.ModelSerializer):
+class UserlevelSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Userscore
+        model = Userlevel
         fields = ("__all__")
 
 class ExplanationSerializer(serializers.ModelSerializer):
