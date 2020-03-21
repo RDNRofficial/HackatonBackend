@@ -17,4 +17,3 @@ class Answer(models.Model):
 class Userscore(models.Model):
     score = models.IntegerField()
     username = models.CharField(max_length=30 ,unique=True)
-
