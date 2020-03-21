@@ -10,7 +10,7 @@ class Answer(models.Model):
     before = models.ImageField(upload_to='images/answers/')
     after = models.ImageField(upload_to='images/answers/')
     solution = models.BooleanField()
-    question = models.ForeignKey(Question, related_name='question', on_delete=models.CASCADE)
+    question = models.ForeignKey(Question, related_name='f_question', on_delete=models.CASCADE)
     x = models.IntegerField()
     y = models.IntegerField()
 
