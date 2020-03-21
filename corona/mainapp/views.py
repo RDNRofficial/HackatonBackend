@@ -8,3 +8,7 @@ from .models import *
 class ListAnswer(ListCreateAPIView):
     serializer_class = AnswerSerializer
     queryset = Answer.objects.get_queryset()
+
+class ListQuestion(ListCreateAPIView):
+    serializer_class = QuestionSerializer
+    queryset = Question.objects.get_queryset()
