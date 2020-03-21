@@ -14,7 +14,7 @@ class Question(models.Model):
     question = models.CharField(max_length=100)
     background = models.ImageField(upload_to='images/background/')
     audio = models.FileField(upload_to='audio/')
-    score = models.IntegerField()
+    level = models.IntegerField()
 
 
 class Answer(models.Model):
