@@ -1,1 +1,6 @@
-Django~=2.2.4
+Django
+djangorestframework
+djangorestframework-jwt
+django-cors-headers
+djangorestframework-queryfields
+Pillow

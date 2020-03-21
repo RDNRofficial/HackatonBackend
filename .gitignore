@@ -86,7 +86,8 @@ myvenv/
 venv/ 
 ENV/ 
 env.bak/ 
-venv.bak/ 
+venv.bak/
+migrations/ 
 
 # mkdocs documentation 
 /site 
