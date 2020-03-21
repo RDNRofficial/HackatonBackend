@@ -1,7 +1,12 @@
 from django.db import models
 
+
 class Question(models.Model):
     """
+    Describes a Question and its components, such as the background image and a voice over.
+
+    Attributes
+    ----------    
     question = models.CharField(max_length=100)
         the actual textual question
     background = models.ImageField(upload_to='images/background/')
@@ -19,6 +24,10 @@ class Question(models.Model):
 
 class Answer(models.Model):
     """
+    Describes an answer, whether its correct and which question it belongs to. 
+
+    Attributes
+    ----------    
     before = models.ImageField(upload_to='images/answers/')
         visualized answer before clicking it
     after = models.ImageField(upload_to='images/answers/')
@@ -35,22 +44,33 @@ class Answer(models.Model):
     before = models.ImageField(upload_to='images/answers/')
     after = models.ImageField(upload_to='images/answers/')
     solution = models.BooleanField()
-    question = models.ForeignKey(Question, related_name='f_question', on_delete=models.CASCADE)
+    question = models.ForeignKey(
+        Question, related_name='f_question', on_delete=models.CASCADE)
     x = models.IntegerField()
     y = models.IntegerField()
 
+
 class Userlevel(models.Model):
     """
+    Describes the progress a user has made in the app.
+
+    Attributes
+    ----------
     score = models.IntegerField()
         score the user has archieved
     username = models.CharField(max_length=30 ,unique=True)
         unique username
     """
     level = models.IntegerField()
-    username = models.CharField(max_length=30 ,unique=True)
+    username = models.CharField(max_length=30, unique=True)
+
 
 class DIYManual(models.Model):
     """
+    Describes a DIY Manual by its title and preview image.
+
+    Attributes
+    ----------
     title = models.CharField(max_length=100)
         name of the DIY manual
     title_image = models.ImageField(upload_to='images/diy/titles')
@@ -59,8 +79,13 @@ class DIYManual(models.Model):
     title = models.CharField(max_length=100)
     title_image = models.ImageField(upload_to='images/diy/titles')
 
+
 class Explanation(models.Model):
     """
+    Describes a step in a DIY Manual. Ech explanation consists of an image and an explanatory text.
+
+    Attributes
+    ----------
     image = models.ImageField(upload_to='images/diy/')
         visualisation of a step in the diy manual
     text = models.CharField(max_length=200)
@@ -70,4 +95,5 @@ class Explanation(models.Model):
     """
     image = models.ImageField(upload_to='images/diy/')
     text = models.CharField(max_length=200)
-    manual = models.ForeignKey(DIYManual, related_name='diy_manual', on_delete=models.CASCADE)
+    manual = models.ForeignKey(
+        DIYManual, related_name='diy_manual', on_delete=models.CASCADE)
