@@ -3,7 +3,8 @@ from django.db import models
 class Question(models.Model):
     question = models.CharField(max_length=100)
     background = models.ImageField(upload_to='images/background/')
-    audio = models.CharField(max_length=100) #TODO
+    audio = models.FileField(upload_to='audio/')
+    score = models.IntegerField()
 
 
 class Answer(models.Model):
