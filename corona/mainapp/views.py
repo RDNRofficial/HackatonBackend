@@ -28,3 +28,7 @@ class ListDIYManuals(ListCreateAPIView):
 class ListQA(ListAPIView):
     serializer_class = QuestionAnswerSerializer
     queryset = Question.objects.get_queryset()
+
+class ListDIY(ListAPIView):
+    serializer_class = DIYSerializer
+    queryset = DIYManual.objects.get_queryset()
