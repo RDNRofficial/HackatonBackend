@@ -5,10 +5,10 @@ import random
 from mainapp.models import *
 
 
-tables = [Question, Answer, Userscore, DIYManual,Explanation]
+tables = [Question, Answer, Userlevel, DIYManual,Explanation]
 QUESTIONS = []
 ANSWERS = []
-USER_SCOES = []
+USER_LEVEL = []
 DIY_MANUALS = []
 EXPLANATIONS = []
 
@@ -36,8 +36,8 @@ def create_answer():
     save(Answer, "Answer", ANSWERS)
 
 
-def create_userscore():
-    save(Userscore, "Userscore", USER_SCORES)
+def create_userlevel():
+    save(Userlevel, "Userlevel", USER_LEVEL)
 
 
 def create_diymanual():
@@ -62,7 +62,7 @@ def generate():
     delete_tables()
     create_question()
     create_answer()
-    create_userscore()
+    create_userlevel()
     create_diymanual()
     create_explanation()
     print("DONE\n")

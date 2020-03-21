@@ -39,14 +39,14 @@ class Answer(models.Model):
     x = models.IntegerField()
     y = models.IntegerField()
 
-class Userscore(models.Model):
+class Userlevel(models.Model):
     """
     score = models.IntegerField()
         score the user has archieved
     username = models.CharField(max_length=30 ,unique=True)
         unique username
     """
-    score = models.IntegerField()
+    level = models.IntegerField()
     username = models.CharField(max_length=30 ,unique=True)
 
 class DIYManual(models.Model):
