@@ -24,3 +24,7 @@ class ListUserscore(ListCreateAPIView):
 class ListDIYManuals(ListCreateAPIView):
     serializer_class = DIYManualSerializer
     queryset = DIYManual.objects.get_queryset()
+
+class ListQA(ListAPIView):
+    serializer_class = QuestionAnswerSerializer
+    queryset = Question.objects.get_queryset()
