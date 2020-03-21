@@ -37,6 +37,19 @@ class QuestionAnswerSerializer(serializers.ModelSerializer):
         fields =("__all__")
 
     def get_answers(self, obj):
-        test = Answer.objects.filter(question=obj.pk)
-        serializer = AnswerSerializer(instance=test, many=True)
+        answer_list = Answer.objects.filter(question=obj.pk)
+        serializer = AnswerSerializer(instance=answer_list, many=True)
         return serializer.data
+    
+class DIYSerializer(serializers.ModelSerializer):
+    steps = serializers.SerializerMethodField()
+
+    class Meta:
+        model = DIYManual
+        fields = ("__all__")
+    
+    def get_steps(self, obj):
+        explanation_list = Explanation.objects.filter(manual=obj.pk)
+        serializer = ExplanationSerializer(instance=explanation_list, many=True)
+        return serializer.data
+
