@@ -12,4 +12,3 @@ class Question(models.Model):
 
 class Userscore(models.Model):
 
-
