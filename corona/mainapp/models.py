@@ -36,18 +36,23 @@ class Answer(models.Model):
         whether the answer is correct
     question = models.ForeignKey(Question, related_name='f_question', on_delete=models.CASCADE)
         question this answer belongs to
-    x = models.IntegerField()
+    x = models.DecimalField(max_digits=10, decimal_places=10)
         x position of the answer inside the background image
-    y = models.IntegerField()
+    y = models.DecimalField(max_digits=10, decimal_places=10)
         y position of the answer inside the background image
+    size_before = models.DecimalField(max_digits=10, decimal_places=10)
+        relative size of the before image in relation to the background image
+    size_after = models.DecimalField(max_digits=10, decimal_places=10)
+        relative size of the afet image in relation tp the background image
     """
     before = models.ImageField(upload_to='images/answers/')
     after = models.ImageField(upload_to='images/answers/')
     solution = models.BooleanField()
-    question = models.ForeignKey(
-        Question, related_name='f_question', on_delete=models.CASCADE)
-    x = models.IntegerField()
-    y = models.IntegerField()
+    question = models.ForeignKey(Question, related_name='f_question', on_delete=models.CASCADE)
+    x = models.DecimalField(max_digits=10, decimal_places=10)
+    y = models.DecimalField(max_digits=10, decimal_places=10)
+    size_before = models.DecimalField(max_digits=10, decimal_places=10)
+    size_after = models.DecimalField(max_digits=10, decimal_places=10)
 
 
 class Userlevel(models.Model):
