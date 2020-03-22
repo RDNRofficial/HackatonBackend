@@ -76,8 +76,15 @@ class DIYManual(models.Model):
     title_image = models.ImageField(upload_to='images/diy/titles')
         preview image shown for selecting it in a list
     """
-    title = models.CharField(max_length=100)
+    title = models.CharField(max_length=200)
     title_image = models.ImageField(upload_to='images/diy/titles')
+
+class DIYList(models):
+    diyType = models.CharField(choices=["MATERIAL", "EXECUTION", "EXPLANATION"], max_length=200)
+    title = models.CharField(max_length=200)
+    manual = models.ForeignKey(
+        DIYManual, related_name='diy_manual', on_delete=models.CASCADE)
+
 
 
 class Explanation(models.Model):
@@ -90,10 +97,10 @@ class Explanation(models.Model):
         visualisation of a step in the diy manual
     text = models.CharField(max_length=200)
         textual explanation of the image
-    manual = models.ForeignKey(DIYManual, related_name='diy_manual', on_delete=models.CASCADE)
+    list = models.ForeignKey(DIYManual, related_name='diy_manual', on_delete=models.CASCADE)
         the DIY manual this explanation belongs to
     """
-    image = models.ImageField(upload_to='images/diy/')
+    image = models.ImageField(upload_to='images/diy/', null=True)
     text = models.CharField(max_length=200)
-    manual = models.ForeignKey(
-        DIYManual, related_name='diy_manual', on_delete=models.CASCADE)
+    diyList = models.ForeignKey(
+        DIYList, related_name='diy_list', on_delete=models.CASCADE)
