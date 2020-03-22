@@ -85,7 +85,7 @@ class DIYManual(models.Model):
     title_image = models.ImageField(upload_to='images/diy/titles')
 
 class DIYList(models):
-    diyType = models.CharField(choices=["MATERIAL", "EXECUTION", "EXPLANATION"], max_length=200)
+    diyType = models.CharField(choices=[("MATERIAL", "Material"), ("EXECUTION", "Execution"), ("EXPLANATION", "Explanation")], max_length=200)
     title = models.CharField(max_length=200)
     manual = models.ForeignKey(
         DIYManual, related_name='diy_manual', on_delete=models.CASCADE)
