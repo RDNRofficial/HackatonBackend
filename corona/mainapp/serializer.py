@@ -26,6 +26,11 @@ class ExplanationSerializer(serializers.ModelSerializer):
         model = Explanation
         fields = ("__all__")
 
+class DIYListSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = DIYList
+        fields = ("__all__")
+
 
 class DIYManualSerializer(serializers.ModelSerializer):
     class Meta:
@@ -47,17 +52,29 @@ class QuestionAnswerSerializer(serializers.ModelSerializer):
         serializer = AnswerSerializer(instance=answer_list, many=True)
         return serializer.data
 
+class ListExplanationSerializer(serializers.ModelSerializer):
+    steps = serializers.SerializerMethodField()
+
+    class Meta:
+        model = DIYList
+        fields = ("__all__")
+
+    def get_steps(self, obj):
+        """Gets all explanations wich have a reference to the serialized DIYManual"""
+        explanation_list = Explanation.objects.filter(diyList=obj.pk)
+        serializer = ExplanationSerializer(instance=explanation_list, many=True)
+        return serializer.data
 
 class DIYSerializer(serializers.ModelSerializer):
     """Combined Serializer for a DIYManual and all its explanations"""
-    steps = serializers.SerializerMethodField()
+    lists = serializers.SerializerMethodField()
 
     class Meta:
         model = DIYManual
         fields = ("__all__")
 
-    def get_steps(self, obj):
+    def get_lists(self, obj):
         """Gets all explanations wich have a reference to the serialized DIYManual"""
-        explanation_list = Explanation.objects.filter(manual=obj.pk)
-        serializer = ExplanationSerializer(instance=explanation_list, many=True)
+        lists_list = DIYList.objects.filter(manual=obj.pk)
+        serializer = ListExplanationSerializer(instance=lists_list, many=True)
         return serializer.data

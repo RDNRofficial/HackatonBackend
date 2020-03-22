@@ -1,5 +1,10 @@
 from django.db import models
+from enum import Enum
 
+class ListTypes(Enum):
+    MATERIAL = "Material"
+    EXECUTION = "Execution"
+    EXPLANATION = "Explanation"
 
 class Question(models.Model):
     """
@@ -84,8 +89,8 @@ class DIYManual(models.Model):
     title = models.CharField(max_length=200)
     title_image = models.ImageField(upload_to='images/diy/titles')
 
-class DIYList(models):
-    diyType = models.CharField(choices=[("MATERIAL", "Material"), ("EXECUTION", "Execution"), ("EXPLANATION", "Explanation")], max_length=200)
+class DIYList(models.Model):
+    diyType = models.CharField(choices=[(t.value,t.value) for t in ListTypes], max_length=200)
     title = models.CharField(max_length=200)
     manual = models.ForeignKey(
         DIYManual, related_name='diy_manual', on_delete=models.CASCADE)

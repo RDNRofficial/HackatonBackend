@@ -45,6 +45,16 @@ class ModifyUserlevel(RetrieveUpdateDestroyAPIView):
     queryset = Question.objects.get_queryset()
     lookup_field = 'username'
 
+#DIYList
+class ListDIYList(ListCreateAPIView):
+    serializer_class = DIYListSerializer
+    queryset = DIYList.objects.get_queryset()
+
+class ModifyDIYList(RetrieveUpdateDestroyAPIView):
+    serializer_class = DIYListSerializer
+    queryset = DIYList.objects.get_queryset()
+    lookup_field = 'pk'    
+
 #DIYManuals
 class ListDIYManuals(ListCreateAPIView):
     serializer_class = DIYManualSerializer
